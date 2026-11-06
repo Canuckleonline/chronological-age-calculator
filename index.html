@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chronological Age Calculator – Years, Months &amp; Days for Testing</title>
+<meta name="description" content="Free chronological age calculator for psychologists, teachers and speech therapists. Get exact age in years, months and days, see the borrowing steps, check your hand calculation and work out a whole class at once.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Chronological Age Calculator – Exact Y;M;D Age">
+<meta property="og:description" content="Calculate chronological age for test scoring with step-by-step borrowing, rounding options and a class list tool.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600;6..72,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Chronological Age Calculator","applicationCategory":"EducationalApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Calculates chronological age in years, months and days between a date of birth and a date of testing, with borrowing steps, rounding options and a class list mode."}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"HowTo","name":"How to calculate chronological age by hand","step":[
+{"@type":"HowToStep","name":"Write the dates","text":"Write the date of testing on the top line and the date of birth underneath, both as year, month and day."},
+{"@type":"HowToStep","name":"Subtract the days","text":"Subtract the birth day from the test day. If the test day is smaller, borrow one month from the month column and add its days to the day column."},
+{"@type":"HowToStep","name":"Subtract the months","text":"Subtract the birth month from the test month. If the test month is smaller, borrow one year and add 12 months."},
+{"@type":"HowToStep","name":"Subtract the years","text":"Subtract the birth year from the test year. The three answers give the chronological age in years;months;days."}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is chronological age?","acceptedAnswer":{"@type":"Answer","text":"Chronological age is the exact amount of time a person has been alive, measured from the date of birth to a given date and written in years, months and days."}},
+{"@type":"Question","name":"How do you write chronological age?","acceptedAnswer":{"@type":"Answer","text":"It is usually written as years;months;days, for example 8;7;9 means 8 years, 7 months and 9 days. Some forms use hyphens or periods instead of semicolons."}},
+{"@type":"Question","name":"Should I round chronological age up?","acceptedAnswer":{"@type":"Answer","text":"Only if your test manual tells you to. Many current test manuals say not to round days. Some older tools round 15 or 16 days up to the next month. This calculator lets you pick the rule your manual uses."}},
+{"@type":"Question","name":"Why do two calculators give a different number of days?","acceptedAnswer":{"@type":"Answer","text":"Some borrow the real number of days in the previous month (28 to 31) and some borrow a fixed 30 days, as many paper record forms do. The years and months stay the same, but the days can differ by one or two."}},
+{"@type":"Question","name":"Is chronological age the same as corrected age?","acceptedAnswer":{"@type":"Answer","text":"No. Corrected age subtracts the weeks a baby was born early. Chronological age is always counted from the actual date of birth."}},
+{"@type":"Question","name":"What is the difference between chronological age and mental age?","acceptedAnswer":{"@type":"Answer","text":"Chronological age is calendar time since birth. Mental age or age equivalent is an estimate of the age level a person performs at on a test. The two are compared, but they measure different things."}},
+{"@type":"Question","name":"Can I calculate the age of a whole class?","acceptedAnswer":{"@type":"Answer","text":"Yes. Paste a list of names and birth dates into the class list tool, choose one test date, and you get every student's age with a CSV you can copy into a spreadsheet."}},
+{"@type":"Question","name":"Is my data saved anywhere?","acceptedAnswer":{"@type":"Answer","text":"No. All calculations run in your browser. Names and dates are not sent or stored."}}]}
+</script>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap top-in">
+    <a href="#" class="brand"><span class="brand-mark" aria-hidden="true">CA</span><span>Age<b>Record</b></span></a>
+    <button class="menu" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+    <nav class="nav" aria-label="Main">
+      <a href="#calculator">Calculator</a>
+      <a href="#how">How It Works</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap hero-in">
+    <div class="hero-text">
+      <p class="eyebrow">For psychologists · teachers · speech therapists</p>
+      <h1>Chronological Age Calculator</h1>
+      <p class="lead">Work out exact chronological age in <strong>years, months and days</strong> for test scoring, school reports and developmental checks. Every step of the borrowing is shown, so you can copy it straight onto a record form. For more age tools and printable guides, visit this <a href="https://chronologicagecalc.com/">Chronological Age Calculator</a>.</p>
+      <ul class="hero-points">
+        <li><span>01</span>Calendar or 30-day borrowing</li>
+        <li><span>02</span>Rounding rule of your choice</li>
+        <li><span>03</span>Whole class in one go</li>
+      </ul>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <svg viewBox="0 0 320 300" role="img">
+        <rect x="40" y="26" width="240" height="262" rx="14" fill="#fff" stroke="#14213d" stroke-width="3"/>
+        <rect x="118" y="12" width="84" height="30" rx="8" fill="#e0a526" stroke="#14213d" stroke-width="3"/>
+        <text x="160" y="76" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="13" fill="#5c6478">YEAR  MONTH  DAY</text>
+        <line x1="64" y1="88" x2="256" y2="88" stroke="#d9d2c0" stroke-width="2"/>
+        <text x="96" y="122" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="24" fill="#14213d">2026</text>
+        <text x="172" y="122" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="24" fill="#14213d"><tspan text-decoration="line-through" fill="#9aa0ad">11</tspan></text>
+        <text x="198" y="106" font-family="IBM Plex Mono, monospace" font-size="15" fill="#c8423b">10</text>
+        <text x="236" y="122" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="24" fill="#9aa0ad">5</text>
+        <text x="256" y="106" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="15" fill="#c8423b">36</text>
+        <text x="96" y="162" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="24" fill="#14213d">2018</text>
+        <text x="172" y="162" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="24" fill="#14213d">3</text>
+        <text x="236" y="162" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="24" fill="#14213d">27</text>
+        <text x="46" y="162" font-family="IBM Plex Mono, monospace" font-size="22" fill="#14213d">−</text>
+        <line x1="64" y1="180" x2="256" y2="180" stroke="#14213d" stroke-width="3"/>
+        <text x="96" y="218" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="28" font-weight="600" fill="#2f6f57">8</text>
+        <text x="172" y="218" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="28" font-weight="600" fill="#2f6f57">7</text>
+        <text x="236" y="218" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="28" font-weight="600" fill="#2f6f57">9</text>
+        <ellipse cx="166" cy="208" rx="112" ry="30" fill="none" stroke="#e0a526" stroke-width="3" stroke-dasharray="6 6" transform="rotate(-3 166 208)"/>
+        <line x1="64" y1="250" x2="200" y2="250" stroke="#d9d2c0" stroke-width="2"/>
+        <line x1="64" y1="266" x2="160" y2="266" stroke="#d9d2c0" stroke-width="2"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="calc-sec" id="calculator">
+  <div class="wrap">
+    <div class="sheet">
+      <div class="sheet-head">
+        <div>
+          <p class="sheet-kicker">Record form</p>
+          <h2>Calculate chronological age</h2>
+        </div>
+        <div class="sheet-actions">
+          <button type="button" class="btn ghost" id="copy">Copy result</button>
+          <button type="button" class="btn ghost" id="print">Print</button>
+        </div>
+      </div>
+
+      <div class="sheet-body">
+        <form class="inputs" id="form" onsubmit="return false">
+          <div class="field">
+            <label for="test">Date of testing</label>
+            <input type="date" id="test" required>
+            <div class="mini-btns">
+              <button type="button" data-set="today">Today</button>
+              <button type="button" data-set="m1">−1 month</button>
+              <button type="button" data-set="y1">−1 year</button>
+            </div>
+          </div>
+          <div class="field">
+            <label for="birth">Date of birth</label>
+            <input type="date" id="birth" required>
+          </div>
+
+          <fieldset class="field">
+            <legend>Borrowing method</legend>
+            <label class="radio"><input type="radio" name="method" value="cal" checked><span><b>Calendar</b> – borrow the real days of the previous month (28–31)</span></label>
+            <label class="radio"><input type="radio" name="method" value="30"><span><b>30-day</b> – borrow a fixed 30 days, as on many paper forms</span></label>
+          </fieldset>
+
+          <div class="field">
+            <label for="round">Rounding</label>
+            <select id="round">
+              <option value="0">Do not round (recommended unless your manual says otherwise)</option>
+              <option value="15">Round 15 or more days up to a month</option>
+              <option value="16">Round 16 or more days up to a month</option>
+            </select>
+          </div>
+
+          <div class="check-box">
+            <p class="check-title">Check your hand calculation</p>
+            <div class="check-row">
+              <input type="number" id="cy" min="0" max="130" placeholder="Y" aria-label="Your years">
+              <span>;</span>
+              <input type="number" id="cm" min="0" max="11" placeholder="M" aria-label="Your months">
+              <span>;</span>
+              <input type="number" id="cd" min="0" max="31" placeholder="D" aria-label="Your days">
+              <button type="button" class="btn small" id="checkBtn">Check</button>
+            </div>
+            <p class="check-msg" id="checkMsg" aria-live="polite"></p>
+          </div>
+        </form>
+
+        <div class="output" aria-live="polite">
+          <p class="err" id="err" hidden></p>
+          <div id="res">
+            <div class="big">
+              <p class="big-label">Chronological age</p>
+              <p class="big-code" id="code">0;0;0</p>
+              <p class="big-words" id="words">–</p>
+            </div>
+
+            <table class="grid" aria-label="Subtraction working">
+              <thead><tr><th></th><th>Year</th><th>Month</th><th>Day</th></tr></thead>
+              <tbody>
+                <tr><th>Date of testing</th><td id="gTy"></td><td id="gTm"></td><td id="gTd"></td></tr>
+                <tr><th>Date of birth</th><td id="gBy"></td><td id="gBm"></td><td id="gBd"></td></tr>
+                <tr class="sum"><th>Chronological age</th><td id="gAy"></td><td id="gAm"></td><td id="gAd"></td></tr>
+              </tbody>
+            </table>
+            <ol class="steps" id="steps"></ol>
+
+            <div class="stats">
+              <div><span>Total months</span><b id="sMonths"></b></div>
+              <div><span>Decimal years</span><b id="sDec"></b></div>
+              <div><span>Total weeks</span><b id="sWeeks"></b></div>
+              <div><span>Total days</span><b id="sDays"></b></div>
+            </div>
+            <p class="note" id="note"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec batch-sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Class list tool</p>
+      <h2>Chronological age for a whole group</h2>
+      <p>Testing a class or a caseload? Paste one student per line as <code>Name, date of birth</code>. Every age is worked out with the same test date, borrowing method and rounding rule you chose above.</p>
+    </div>
+    <div class="batch">
+      <div class="batch-in">
+        <div class="batch-opts">
+          <label>Test date <input type="date" id="bTest"></label>
+          <label>Date format
+            <select id="bFmt">
+              <option value="ymd">YYYY-MM-DD</option>
+              <option value="mdy">MM/DD/YYYY</option>
+              <option value="dmy">DD/MM/YYYY</option>
+            </select>
+          </label>
+        </div>
+        <label for="bList" class="sr">Student list</label>
+        <textarea id="bList" rows="8" spellcheck="false">Ava Thompson, 2018-03-27
+Liam Patel, 2017-11-30
+Noah García, 2019-01-05
+Mia Chen, 2018-08-14
+Ethan Brooks, 2016-12-31</textarea>
+        <div class="batch-btns">
+          <button type="button" class="btn" id="bRun">Calculate all</button>
+          <button type="button" class="btn ghost" id="bCsv">Copy as CSV</button>
+        </div>
+      </div>
+      <div class="batch-out">
+        <table class="list" id="bTable">
+          <thead><tr><th>Name</th><th>Date of birth</th><th>Age (Y;M;D)</th><th>Months</th></tr></thead>
+          <tbody></tbody>
+        </table>
+        <p class="batch-sum" id="bSum"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec prose-sec" id="how">
+  <div class="wrap prose-grid">
+    <aside class="toc">
+      <p>On this page</p>
+      <a href="#what">What chronological age means</a>
+      <a href="#manual">Calculate it by hand</a>
+      <a href="#methods">Calendar vs 30-day</a>
+      <a href="#rounding">Rounding rules</a>
+      <a href="#uses">Where it is used</a>
+      <a href="#compare">Other kinds of age</a>
+      <a href="#mistakes">Common mistakes</a>
+      <a href="#months">Age in months</a>
+    </aside>
+
+    <div class="prose">
+      <h2 id="what">What is chronological age?</h2>
+      <p>Chronological age is the amount of time that has passed between a person's date of birth and a chosen date. It is the "real" calendar age, as opposed to an estimate of how mature someone is or how they perform on a test. In everyday life we round it to whole years, but in assessment work it is written as <strong>years;months;days</strong> because a few weeks can change which norm table is used.</p>
+      <p>Most standardised tests, from intelligence and achievement batteries to language and motor scales, turn a raw score into a standard score by comparing the person with others of the same age. Norm tables are often split into bands of three or four months for children, and sometimes into single months for infants. If the chronological age is wrong by even a few days near the edge of a band, the wrong table can be used and the final score shifts. That is why a dependable chronological age calculator is part of every examiner's kit.</p>
+
+      <h2 id="manual">How to calculate chronological age by hand</h2>
+      <p>The method is a simple subtraction with "borrowing", laid out in three columns: year, month and day. The date of testing goes on top, the date of birth underneath.</p>
+      <div class="example">
+        <p class="ex-title">Example 1 – borrowing days</p>
+        <p>Date of testing: <b>5 November 2026</b>. Date of birth: <b>27 March 2018</b>.</p>
+        <table class="mini">
+          <tr><th></th><th>Year</th><th>Month</th><th>Day</th></tr>
+          <tr><th>Testing</th><td>2026</td><td><s>11</s> 10</td><td><s>5</s> 36</td></tr>
+          <tr><th>Birth</th><td>2018</td><td>3</td><td>27</td></tr>
+          <tr class="sum"><th>Age</th><td>8</td><td>7</td><td>9</td></tr>
+        </table>
+        <ol>
+          <li><b>Days:</b> 5 is smaller than 27, so borrow one month. October has 31 days: 5 + 31 = 36, and 36 − 27 = <b>9</b>.</li>
+          <li><b>Months:</b> after borrowing, the test month is 10. 10 − 3 = <b>7</b>.</li>
+          <li><b>Years:</b> 2026 − 2018 = <b>8</b>.</li>
+        </ol>
+        <p>Chronological age = <b>8;7;9</b> (8 years, 7 months, 9 days).</p>
+      </div>
+      <div class="example">
+        <p class="ex-title">Example 2 – borrowing days and months</p>
+        <p>Date of testing: <b>10 February 2026</b>. Date of birth: <b>25 September 2019</b>.</p>
+        <ol>
+          <li><b>Days:</b> 10 is smaller than 25. Borrow January's 31 days: 10 + 31 = 41, 41 − 25 = <b>16</b>. The test month drops from 2 to 1.</li>
+          <li><b>Months:</b> 1 is smaller than 9, so borrow one year: 1 + 12 = 13, 13 − 9 = <b>4</b>. The test year drops from 2026 to 2025.</li>
+          <li><b>Years:</b> 2025 − 2019 = <b>6</b>.</li>
+        </ol>
+        <p>Chronological age = <b>6;4;16</b>. Try both examples in the calculator above and compare the working.</p>
+      </div>
+
+      <h2 id="methods">Calendar borrowing vs 30-day borrowing</h2>
+      <p>When the day column needs a borrow, there are two common conventions:</p>
+      <ul>
+        <li><b>Calendar method.</b> You add the real number of days in the month before the test month (28, 29, 30 or 31). This matches the actual time that has passed and is what most online tools use.</li>
+        <li><b>30-day method.</b> You always add 30, whatever the month. Many paper record forms and older manuals teach this because it is quick and consistent between examiners.</li>
+      </ul>
+      <p>The years and months are almost always identical. Only the days can change, usually by one or two. In Example 1 the calendar method gives 8;7;9 and the 30-day method gives 8;7;8. If your test publisher's scoring software uses one rule, use the same rule by hand, so your record form and the software agree.</p>
+
+      <h2 id="rounding">Should you round chronological age?</h2>
+      <p>This is the question examiners ask most often, and the honest answer is: <strong>follow the manual of the test you are scoring.</strong> Many current manuals tell you not to round days at all. You simply use the years and months and look up the band that contains them. Other tools, especially some older developmental checklists, ask you to round 15 or 16 days or more up to the next month.</p>
+      <p>Rounding matters most at the edge of a norm band. A child who is 7;11;20 sits in the 7;8–7;11 band if you do not round, but moves to 8;0 if you round 16+ days up. Pick the rule in the calculator's rounding menu. The result box tells you when rounding has changed the age, so nothing happens without you seeing it.</p>
+
+      <h2 id="uses">Where chronological age is used</h2>
+      <div class="uses">
+        <div><h3>Psychological testing</h3><p>Intelligence, memory and attention tests turn raw scores into standard scores using age-based norms.</p></div>
+        <div><h3>Speech &amp; language</h3><p>Speech-language pathologists compare vocabulary, articulation and language scores with children of the same age.</p></div>
+        <div><h3>Schools &amp; special education</h3><p>Reading and maths assessments, eligibility reports and IEP paperwork all record the student's exact age at testing.</p></div>
+        <div><h3>Paediatrics &amp; growth</h3><p>Growth charts, milestone checklists and vaccination schedules are all based on a child's age in months.</p></div>
+        <div><h3>Occupational therapy</h3><p>Motor and sensory assessments use age bands to decide whether skills are on track.</p></div>
+        <div><h3>Sports &amp; competitions</h3><p>Age groups are often fixed by age on a cut-off date, which is a chronological age question too.</p></div>
+      </div>
+
+      <h2 id="compare">Chronological age vs other kinds of age</h2>
+      <table class="compare">
+        <thead><tr><th>Term</th><th>What it measures</th><th>How it relates</th></tr></thead>
+        <tbody>
+          <tr><td><b>Chronological age</b></td><td>Calendar time since birth</td><td>The starting point for every other comparison</td></tr>
+          <tr><td><b>Corrected (adjusted) age</b></td><td>Age counted from the due date for babies born early</td><td>Chronological age minus the weeks of prematurity, mostly used up to about 2 years</td></tr>
+          <tr><td><b>Mental age / age equivalent</b></td><td>The age level a person performs at on a test</td><td>Compared with chronological age, but much less precise than a standard score</td></tr>
+          <tr><td><b>Developmental age</b></td><td>The stage reached in motor, language or social skills</td><td>Can be above or below chronological age</td></tr>
+          <tr><td><b>Bone (skeletal) age</b></td><td>Maturity of the bones, read from an X-ray</td><td>Used by doctors to check growth against chronological age</td></tr>
+        </tbody>
+      </table>
+
+      <h2 id="mistakes">Common mistakes when calculating chronological age</h2>
+      <ul class="checks">
+        <li><b>Putting the dates the wrong way round.</b> The date of testing always goes on top, the date of birth underneath.</li>
+        <li><b>Forgetting to lower the month after borrowing days.</b> When you borrow for the day column, the month column on the top line goes down by one.</li>
+        <li><b>Using the wrong month to borrow from.</b> With the calendar method, borrow the days of the month <em>before</em> the test month, not the birth month.</li>
+        <li><b>Mixing US and European date formats.</b> 04/05/2019 is 5 April in the US and 4 May in Europe. Check the format before you enter it.</li>
+        <li><b>Rounding when the manual says not to.</b> Rounding can move a child into the next norm band and change the standard score.</li>
+        <li><b>Using the date the report was written.</b> Chronological age is the age on the day the test was given. If testing ran over several days, use the first day unless your manual says otherwise.</li>
+      </ul>
+
+      <h2 id="months">Chronological age in months</h2>
+      <p>Infant and toddler scales, and growth charts, often use total months instead of years and months. Multiply the years by 12 and add the months. A child who is 2;7;14 is 31 months and 14 days old. Here are the whole years for quick reference:</p>
+      <div class="months-grid">
+        <div><b>1 yr</b><span>12 mo</span></div><div><b>2 yrs</b><span>24 mo</span></div><div><b>3 yrs</b><span>36 mo</span></div><div><b>4 yrs</b><span>48 mo</span></div>
+        <div><b>5 yrs</b><span>60 mo</span></div><div><b>6 yrs</b><span>72 mo</span></div><div><b>7 yrs</b><span>84 mo</span></div><div><b>8 yrs</b><span>96 mo</span></div>
+        <div><b>9 yrs</b><span>108 mo</span></div><div><b>10 yrs</b><span>120 mo</span></div><div><b>11 yrs</b><span>132 mo</span></div><div><b>12 yrs</b><span>144 mo</span></div>
+        <div><b>13 yrs</b><span>156 mo</span></div><div><b>14 yrs</b><span>168 mo</span></div><div><b>15 yrs</b><span>180 mo</span></div><div><b>16 yrs</b><span>192 mo</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec faq-sec" id="faq">
+  <div class="wrap faq-wrap">
+    <div class="sec-head">
+      <p class="eyebrow">FAQ</p>
+      <h2>Chronological age questions</h2>
+    </div>
+    <div class="faq">
+      <details open><summary>What is chronological age?</summary><p>Chronological age is the exact amount of time a person has been alive, measured from the date of birth to a given date and written in years, months and days.</p></details>
+      <details><summary>How do you write chronological age?</summary><p>It is usually written as years;months;days, for example 8;7;9 means 8 years, 7 months and 9 days. Some forms use hyphens (8-7-9) or periods (8.7.9) instead of semicolons.</p></details>
+      <details><summary>Should I round chronological age up?</summary><p>Only if your test manual tells you to. Many current test manuals say not to round days. Some older tools round 15 or 16 days up to the next month. This calculator lets you pick the rule your manual uses.</p></details>
+      <details><summary>Why do two calculators give a different number of days?</summary><p>Some borrow the real number of days in the previous month (28 to 31) and some borrow a fixed 30 days, as many paper record forms do. The years and months stay the same, but the days can differ by one or two.</p></details>
+      <details><summary>Is chronological age the same as corrected age?</summary><p>No. Corrected age subtracts the weeks a baby was born early. Chronological age is always counted from the actual date of birth.</p></details>
+      <details><summary>What is the difference between chronological age and mental age?</summary><p>Chronological age is calendar time since birth. Mental age or age equivalent is an estimate of the age level a person performs at on a test. The two are compared, but they measure different things.</p></details>
+      <details><summary>Can I calculate the age of a whole class?</summary><p>Yes. Paste a list of names and birth dates into the class list tool, choose one test date, and you get every student's age with a CSV you can copy into a spreadsheet.</p></details>
+      <details><summary>Is my data saved anywhere?</summary><p>No. All calculations run in your browser. Names and dates are not sent or stored.</p></details>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <p><b>AgeRecord</b> – a free chronological age calculator for assessment work.</p>
+    <p class="small">Results are for convenience. Always check the scoring rules in your test manual.</p>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id);};
+  var MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December'];
+  function dim(y,m){ return new Date(Date.UTC(y,m,0)).getUTCDate(); } /* m = 1..12 */
+  function pad(n){ return (n<10?'0':'')+n; }
+  function iso(o){ return o.y+'-'+pad(o.m)+'-'+pad(o.d); }
+  function parseISO(s){
+    var m=/^(\d{4})-(\d{2})-(\d{2})$/.exec(s||''); if(!m) return null;
+    var o={y:+m[1],m:+m[2],d:+m[3]};
+    if(o.m<1||o.m>12||o.d<1||o.d>dim(o.y,o.m)) return null; return o;
+  }
+  function utc(o){ return Date.UTC(o.y,o.m-1,o.d); }
+  function todayObj(){ var t=new Date(); return {y:t.getFullYear(),m:t.getMonth()+1,d:t.getDate()}; }
+  function shiftMonths(o,n){ var t=o.y*12+(o.m-1)+n, y=Math.floor(t/12), m=t-y*12+1; return {y:y,m:m,d:Math.min(o.d,dim(y,m))}; }
+  function plural(n,w){ return n+' '+w+(n===1?'':'s'); }
+
+  /* core: test date t, birth date b, method 'cal' | '30' */
+  function age(b,t,method){
+    var ty=t.y, tm=t.m, td=t.d, steps=[], borrows=[];
+    var d=td-b.d;
+    if(d<0){
+      var pm=tm-1, py=ty; if(pm<1){pm=12;py--;}
+      var add=method==='30'?30:dim(py,pm);
+      steps.push('Day: '+td+' is smaller than '+b.d+', so borrow 1 month '+(method==='30'?'(30 days)':'('+add+' days of '+MONTHS[pm-1]+')')+': '+td+' + '+add+' = '+(td+add)+'.');
+      td+=add; tm-=1; d=td-b.d; borrows.push(add);
+      if(d<0){ /* end-of-month birthdays, calendar method only */
+        var pm2=pm-1, py2=py; if(pm2<1){pm2=12;py2--;}
+        var add2=dim(py2,pm2);
+        steps.push('Still smaller, so borrow one more month ('+add2+' days of '+MONTHS[pm2-1]+'): '+td+' + '+add2+' = '+(td+add2)+'.');
+        td+=add2; tm-=1; d=td-b.d; borrows.push(add2);
+      }
+    }
+    steps.push('Days: '+td+' − '+b.d+' = '+d+'.');
+    var m=tm-b.m, borrowYear=false;
+    if(m<0){ steps.push('Month: '+tm+' is smaller than '+b.m+', so borrow 1 year: '+tm+' + 12 = '+(tm+12)+'.'); tm+=12; ty-=1; m=tm-b.m; borrowYear=true; }
+    steps.push('Months: '+tm+' − '+b.m+' = '+m+'.');
+    var y=ty-b.y;
+    steps.push('Years: '+ty+' − '+b.y+' = '+y+'.');
+    return {y:y,m:m,d:d,steps:steps,adjT:{y:ty,m:tm,d:td},borrowed:borrows.length>0,borrowYear:borrowYear};
+  }
+  function roundAge(a,th){
+    var r={y:a.y,m:a.m,d:a.d,rounded:false};
+    if(th>0 && r.d>=th){ r.m+=1; r.d=0; r.rounded=true; if(r.m===12){r.m=0;r.y+=1;} }
+    return r;
+  }
+  function method(){ return document.querySelector('input[name=method]:checked').value; }
+  function th(){ return +$('round').value; }
+  function code(a){ return a.y+';'+a.m+';'+a.d; }
+  function words(a){ return plural(a.y,'year')+', '+plural(a.m,'month')+' and '+plural(a.d,'day'); }
+
+  var last=null;
+  function run(){
+    var t=parseISO($('test').value), b=parseISO($('birth').value);
+    $('checkMsg').textContent=''; $('checkMsg').className='check-msg';
+    if(!t||!b){ showErr('Please enter both dates.'); return; }
+    if(utc(b)>utc(t)){ showErr('The date of birth is after the date of testing. Check the two dates.'); return; }
+    $('err').hidden=true; $('res').hidden=false;
+    var raw=age(b,t,method()), a=roundAge(raw,th());
+    last={raw:raw,a:a,t:t,b:b};
+    $('code').textContent=code(a);
+    $('words').textContent=words(a);
+    $('gTy').innerHTML=cell(t.y,raw.adjT.y); $('gTm').innerHTML=cell(t.m,raw.adjT.m); $('gTd').innerHTML=cell(t.d,raw.adjT.d);
+    $('gBy').textContent=b.y; $('gBm').textContent=b.m; $('gBd').textContent=b.d;
+    $('gAy').textContent=raw.y; $('gAm').textContent=raw.m; $('gAd').textContent=raw.d;
+    var st=$('steps'); st.innerHTML='';
+    raw.steps.forEach(function(s){ var li=document.createElement('li'); li.textContent=s; st.appendChild(li); });
+    var days=Math.round((utc(t)-utc(b))/864e5);
+    $('sMonths').textContent=(raw.y*12+raw.m)+(raw.d?' + '+raw.d+'d':'');
+    $('sDec').textContent=(days/365.2425).toFixed(2);
+    $('sWeeks').textContent=Math.floor(days/7).toLocaleString('en-US')+(days%7?' + '+days%7+'d':'');
+    $('sDays').textContent=days.toLocaleString('en-US');
+    var notes=[];
+    if(a.rounded) notes.push('Rounded: '+code(raw)+' became '+code(a)+' because '+raw.d+' days is '+th()+' or more.');
+    if(days===0) notes.push('The two dates are the same day.');
+    else if(t.m===b.m && t.d===b.d) notes.push('Birthday on the test date – exactly '+plural(raw.y,'year')+'.');
+    if(method()==='cal'){ var alt=age(b,t,'30'); if(alt.d!==raw.d) notes.push('With the 30-day method the age would be '+code(roundAge(alt,th()))+'.'); }
+    else { var alt2=age(b,t,'cal'); if(alt2.d!==raw.d) notes.push('With the calendar method the age would be '+code(roundAge(alt2,th()))+'.'); }
+    $('note').textContent=notes.join(' ');
+    $('note').hidden=!notes.length;
+  }
+  function cell(orig,adj){ return orig===adj? String(orig) : '<s>'+orig+'</s> <em>'+adj+'</em>'; }
+  function showErr(msg){ $('err').textContent=msg; $('err').hidden=false; $('res').hidden=true; last=null; }
+
+  ['test','birth','round'].forEach(function(id){ $(id).addEventListener('input',run); $(id).addEventListener('change',run); });
+  document.querySelectorAll('input[name=method]').forEach(function(r){ r.addEventListener('change',function(){run();runBatch();}); });
+  $('round').addEventListener('change',runBatch);
+  document.querySelectorAll('[data-set]').forEach(function(bt){
+    bt.addEventListener('click',function(){
+      var k=bt.getAttribute('data-set'), t=todayObj();
+      if(k==='m1') t=shiftMonths(t,-1); if(k==='y1') t=shiftMonths(t,-12);
+      $('test').value=iso(t); run();
+    });
+  });
+
+  $('checkBtn').addEventListener('click',function(){
+    var msg=$('checkMsg');
+    if(!last){ msg.textContent='Enter both dates first.'; msg.className='check-msg bad'; return; }
+    var y=$('cy').value, m=$('cm').value, d=$('cd').value;
+    if(y===''||m===''||d===''){ msg.textContent='Fill in years, months and days.'; msg.className='check-msg bad'; return; }
+    var u={y:+y,m:+m,d:+d}, a=last.a;
+    if(u.y===a.y&&u.m===a.m&&u.d===a.d){ msg.textContent='✓ Correct – '+code(a)+' matches.'; msg.className='check-msg ok'; return; }
+    var other=roundAge(age(last.b,last.t,method()==='cal'?'30':'cal'),th());
+    if(u.y===other.y&&u.m===other.m&&u.d===other.d){ msg.textContent='Your answer matches the '+(method()==='cal'?'30-day':'calendar')+' method. Switch the borrowing method if that is the rule you use.'; msg.className='check-msg warn'; return; }
+    var hint=u.y!==a.y?'the years':(u.m!==a.m?'the months – did you lower the month after borrowing?':'the days – check how many days you borrowed');
+    msg.textContent='✗ Not quite. Expected '+code(a)+'. Look again at '+hint+'.'; msg.className='check-msg bad';
+  });
+
+  /* batch */
+  function parseFmt(s,f){
+    s=s.trim(); var m, o;
+    if(f==='ymd'){ m=/^(\d{4})[-\/.](\d{1,2})[-\/.](\d{1,2})$/.exec(s); if(m) o={y:+m[1],m:+m[2],d:+m[3]}; }
+    else { m=/^(\d{1,2})[-\/.](\d{1,2})[-\/.](\d{4})$/.exec(s); if(m) o=f==='mdy'?{y:+m[3],m:+m[1],d:+m[2]}:{y:+m[3],m:+m[2],d:+m[1]}; }
+    if(!o||o.m<1||o.m>12||o.d<1||o.d>dim(o.y,o.m)) return null; return o;
+  }
+  function esc(s){ return s.replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];}); }
+  var batchRows=[];
+  function runBatch(){
+    var t=parseISO($('bTest').value), f=$('bFmt').value, tb=document.querySelector('#bTable tbody');
+    tb.innerHTML=''; batchRows=[];
+    if(!t){ $('bSum').textContent='Choose a test date.'; return; }
+    var lines=$('bList').value.split(/\r?\n/), ok=0, bad=0;
+    lines.forEach(function(line){
+      if(!line.trim()) return;
+      var i=line.lastIndexOf(','), name=i>-1?line.slice(0,i).trim():'', ds=i>-1?line.slice(i+1):line;
+      if(i<0){ var sp=line.trim().split(/\s+/); ds=sp.pop(); name=sp.join(' '); }
+      var b=parseFmt(ds,f), tr=document.createElement('tr'), cells;
+      if(!b){ bad++; cells='<td>'+esc(name||'–')+'</td><td>'+esc(ds.trim())+'</td><td colspan="2" class="bad">Date not recognised</td>'; tr.className='row-bad'; }
+      else if(utc(b)>utc(t)){ bad++; cells='<td>'+esc(name||'–')+'</td><td>'+iso(b)+'</td><td colspan="2" class="bad">Born after test date</td>'; tr.className='row-bad'; }
+      else { ok++; var a=roundAge(age(b,t,method()),th()); batchRows.push([name,iso(b),code(a),a.y*12+a.m]);
+        cells='<td>'+esc(name||'–')+'</td><td>'+iso(b)+'</td><td class="mono">'+code(a)+'</td><td class="mono">'+(a.y*12+a.m)+'</td>'; }
+      tr.innerHTML=cells; tb.appendChild(tr);
+    });
+    $('bSum').textContent=ok+' calculated'+(bad?', '+bad+' need checking':'')+' · test date '+iso(t)+' · '+(method()==='30'?'30-day':'calendar')+' method'+(th()?' · rounded '+th()+'+ days':'');
+  }
+  $('bRun').addEventListener('click',runBatch);
+  $('bFmt').addEventListener('change',runBatch);
+  $('bTest').addEventListener('change',runBatch);
+  $('bCsv').addEventListener('click',function(){
+    runBatch(); if(!batchRows.length){ toast('Nothing to copy yet'); return; }
+    var csv='Name,Date of birth,Chronological age,Total months\n'+batchRows.map(function(r){return '"'+String(r[0]).replace(/"/g,'""')+'",'+r[1]+','+r[2]+','+r[3];}).join('\n');
+    copyText(csv,'CSV copied – paste into your spreadsheet');
+  });
+
+  /* copy, print, toast */
+  function copyText(txt,msg){
+    function fb(){ var ta=document.createElement('textarea'); ta.value=txt; ta.style.position='fixed'; ta.style.opacity='0'; document.body.appendChild(ta); ta.select(); try{document.execCommand('copy');}catch(e){} document.body.removeChild(ta); toast(msg); }
+    if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(txt).then(function(){toast(msg);},fb); } else fb();
+  }
+  var tt;
+  function toast(m){ var el=$('toast'); el.textContent=m; el.hidden=false; clearTimeout(tt); tt=setTimeout(function(){el.hidden=true;},2200); }
+  $('copy').addEventListener('click',function(){
+    if(!last){ toast('Enter both dates first'); return; }
+    copyText('Date of testing: '+iso(last.t)+'\nDate of birth: '+iso(last.b)+'\nChronological age: '+code(last.a)+' ('+words(last.a)+')','Result copied');
+  });
+  $('print').addEventListener('click',function(){ window.print(); });
+
+  /* menu */
+  var menu=document.querySelector('.menu'), nav=document.querySelector('.nav');
+  menu.addEventListener('click',function(){ var o=nav.classList.toggle('open'); menu.setAttribute('aria-expanded',o); });
+  nav.querySelectorAll('a').forEach(function(a){ a.addEventListener('click',function(){ nav.classList.remove('open'); menu.setAttribute('aria-expanded','false'); }); });
+
+  /* init */
+  var today=todayObj();
+  $('test').value=iso(today); $('bTest').value=iso(today);
+  $('birth').value='2018-03-27';
+  run(); runBatch();
+})();
+</script>
+</body>
+</html>
